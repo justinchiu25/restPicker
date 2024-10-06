@@ -18,9 +18,11 @@ async function seed() {
 
   const restaurants = await Promise.all([
     Restaurant.create({ name: 'Justin', address: "home" }),
+    Restaurant.create({ name: 'Best Rest', address: "away" })
   ])
 
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${restaurants.length} rests`)
   console.log(`seeded successfully`)
   return {
     users: {
@@ -28,7 +30,8 @@ async function seed() {
       murphy: users[1]
     },
     restaurants: {
-      justin: restaurants[0]
+      justin: restaurants[0],
+      best: restaurants[1]
     }
   }
 }
