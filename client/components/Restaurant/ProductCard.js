@@ -5,7 +5,7 @@ export default function ProductCard({ product }) {
     const history = useHistory();
 
     const handleClick = () => {
-        history.push(`/restaurant/${product.id}`);
+        history.push(`/restaurant/${product.restaurant_id}`);
     }
 
 

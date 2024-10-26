@@ -7,6 +7,11 @@ const axios = require('axios');
 const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
+  user_id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
   username: {
     type: Sequelize.STRING,
     unique: true,

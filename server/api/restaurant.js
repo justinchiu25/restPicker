@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const restaurant = await Restaurant.findByPk(req.params.id)
+    const restaurant = await Restaurant.findByPk(req.params.id);
     if(!restaurant) {
       let error = Error("Restaurant not found");
       error.status = 404
