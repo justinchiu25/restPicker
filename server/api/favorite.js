@@ -9,11 +9,8 @@ router.post('/', async (req, res, next) => {
 
         const user = await User.findByPk(user_id);
         const restaurant = await Restaurant.findByPk(restaurant_id);
-
-        console.log(user);
         
         if (user && restaurant) {
-            console.log("adding", user_id, restaurant_id);
             await user.addRestaurant(restaurant);
             res.status(200).send({ message: "Favorite added successfully" });
         } else {
