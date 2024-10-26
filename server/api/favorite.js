@@ -9,7 +9,6 @@ module.exports = router
 router.get('/:user_id', async (req, res, next) => {
     const { user_id } = req.params;
     try {
-        console.log("trying");
         const user = await User.findByPk(user_id);
         
         if (!user) {
