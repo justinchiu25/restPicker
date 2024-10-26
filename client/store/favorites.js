@@ -12,7 +12,6 @@ const _addFavorite = (favorite) => ({
 export const addFavorite = ( user_id, restaurant_id ) => {
     return async (dispatch) => {
         try {
-            console.log("test");
             const { data } = await axios.post(`/api/favorite`, { user_id, restaurant_id });
             dispatch(_addFavorite(data));
         } catch (err) {
