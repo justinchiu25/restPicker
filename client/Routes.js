@@ -6,6 +6,7 @@ import Home from './components/Home';
 import {me} from './store'
 import Restaurant from './components/Restaurant/RestaurantList';
 import ProductDetail from './components/Restaurant/ProductDetail';
+import FavoriteList from './components/Restaurant/FavoriteList';
 
 /**
  * COMPONENT
@@ -32,6 +33,7 @@ class Routes extends Component {
             <Route path="/signup" component={Signup} />
             <Route exact path="/restaurant" component={Restaurant} />
             <Route path="/restaurant/:restId" component={ProductDetail} />
+            <Route path="/favorite" component={FavoriteList}/>
           </Switch>
         )}
       </div>

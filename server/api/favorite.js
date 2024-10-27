@@ -16,8 +16,6 @@ router.get('/:user_id', async (req, res, next) => {
         } 
         //Gets associated Restaurants
         const favorites = await user.getFavorites();
-        console.log(favorites)
-
         res.json(favorites);
     } catch (err) {
         next(err)
@@ -29,7 +27,6 @@ router.get('/:user_id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     const { user_id, restaurant_id } = req.body;
     try {
-
         const user = await User.findByPk(user_id);
         const restaurant = await Restaurant.findByPk(restaurant_id);
         
