@@ -16,8 +16,8 @@ export default function Restaurants() {
     return (
         <div>
           <div className="product-page">
-            <h1>Our Products</h1>
-            <div className="product-grid">
+            <h1>Restaurants</h1>
+            <div className="restaurant-list">
               {restaurants.map(products => (
                 <ProductCard key={products.restaurant_id} product={products} />
               ))}
