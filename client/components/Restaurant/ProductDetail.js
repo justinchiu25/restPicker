@@ -21,8 +21,8 @@ export default function ProductDetails() {
         <div>
             <div className="product-details">
                 <div style={{textAlign:"center"}}>
-                    <img style={{width:'200px',height:'100px' }} src={restaurant.image} alt={restaurant.name} />    
                     <h1>{restaurant.name}</h1>
+                    <p>{restaurant.address}</p>
                     <p className="price">${restaurant.price}</p>
                 </div>
             </div>

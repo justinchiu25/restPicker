@@ -10,10 +10,11 @@ export default function ProductCard({ product }) {
 
 
     return (
-        <div className="restaurant-card" onClick={handleClick}>
-        <img className="product-image" src={product.image} alt={product.name} />
+        <div className="restaurant-cards" onClick={handleClick}>
         <h2>{product.name}</h2>
         <p className="price">${product.price}</p>
+        <p> {product.rating} </p>
+        <p> Yes </p>
         </div>
     );
 };

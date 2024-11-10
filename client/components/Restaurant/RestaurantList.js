@@ -4,7 +4,6 @@ import { setRestaurant } from "../../store/restaurant";
 import ProductCard from "./ProductCard";
 
 
-
 export default function Restaurants() {
     const restaurants = useSelector((state) => state.restaurant);
     const dispatch = useDispatch();
@@ -17,11 +16,11 @@ export default function Restaurants() {
         <div>
           <div className="product-page">
             <h1>Restaurants</h1>
-            <div className="restaurant-list">
-              {restaurants.map(products => (
-                <ProductCard key={products.restaurant_id} product={products} />
-              ))}
-            </div>
+              <div className="test-list">
+                {restaurants.map(products => (
+                  <ProductCard key={products.restaurant_id} product={products} />
+                ))}
+              </div>
           </div>
         </div>
     )
