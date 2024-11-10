@@ -2,26 +2,29 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Restaurant = db.define('restaurant', {
-  restaurant_id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  address: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  price: {
-    type: Sequelize.FLOAT
-  },
-  image: {
-    type: Sequelize.STRING,
-    defaultValue: 'https://media.entertainmentearth.com/assets/images/a4d5789a36094975a2aa477db9a19c67xl.jpg'
+    restaurant_id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    address: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    zipcode: {
+      type: Sequelize.STRING
+    },
+    price: {
+      type: Sequelize.FLOAT
+    },
+    rating: {
+      type: Sequelize.FLOAT,
+    }
   }
-})
+)
 
 module.exports = Restaurant

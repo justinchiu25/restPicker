@@ -1,6 +1,8 @@
 'use strict'
 
-const {db, models: {User,Restaurant} }  = require('../server/db')
+const { db, models: {User,Restaurant} }  = require('../server/db')
+const fs = require('fs');
+const path = require('path');
 
 /**
  * seed - this function clears the database, updates tables to
@@ -16,23 +18,31 @@ async function seed() {
     User.create({ username: 'murphy', password: '123' }),
   ])
 
-  const restaurants = await Promise.all([
-    Restaurant.create({ name: 'Justin', address: "home" }),
-    Restaurant.create({ name: 'Best Rest', address: "away" })
-  ])
 
+  const jsonFilePath = path.join(__dirname, 'restdata.json');
+  const rawData = fs.readFileSync(jsonFilePath, 'utf8');
+  const restaurantData = JSON.parse(rawData); // Parse the JSON data
+
+  const restaurants = await Promise.all(restaurantData.map((restaurant) =>
+    Restaurant.create(restaurant)
+  ));
+
+  // try {
+  //   // Execute the SQL queries
+  //   await db.query(sqlQueries);
+  //   console.log('seeded restaurants from SQL file');
+  // } catch (err) {
+  //   console.error('Error seeding restaurants from SQL file:', err);
+  // }
+  
   console.log(`seeded ${users.length} users`)
-  console.log(`seeded ${restaurants.length} rests`)
   console.log(`seeded successfully`)
   return {
     users: {
       cody: users[0],
       murphy: users[1]
     },
-    restaurants: {
-      justin: restaurants[0],
-      best: restaurants[1]
-    }
+    restaurant: restaurants
   }
 }
 
