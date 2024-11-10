@@ -16,7 +16,7 @@ const Restaurant = db.define('restaurant', {
       allowNull: false
     },
     zipcode: {
-      type: Sequelize.STRING
+      type: Sequelize.INTEGER
     },
     price: {
       type: Sequelize.FLOAT
